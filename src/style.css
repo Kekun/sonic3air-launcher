@@ -1,0 +1,96 @@
+@keyframes checkered-move {
+0% { background-position: calc(50% - 24px) 50%, 50% calc(50% + 24px); }
+100% { background-position: 50% calc(50% - 24px), calc(50% + 24px) 50%; }
+}
+
+@keyframes jagged-move {
+0% { background-position: 50% bottom, 50% bottom; }
+100% { background-position: calc(50% - 24px) bottom, calc(50% - 24px) bottom; }
+}
+
+.checkered {
+  animation: checkered-move infinite linear 1s;
+  background: linear-gradient(45deg,
+                              #600 25%,
+                              transparent 25%,
+                              transparent 75%,
+                              #600 75%,
+                              #600 0),
+              linear-gradient(45deg,
+                              #600 25%,
+                              transparent 25%,
+                              transparent 75%,
+                              #600 75%,
+                              #600 0),
+              #800;
+  background-repeat: repeat, repeat;
+  background-position: 50% calc(50% + 24px), calc(50% + 24px) calc(50% + 48px);
+  background-origin: padding-box, padding-box;
+  background-clip: border-box, border-box;
+  background-size: 48px 48px, 48px 48px;
+  box-shadow: none;
+  text-shadow: none;
+  transition: none;
+  transform: scaleX(1) scaleY(1) scaleZ(1);
+}
+
+.jagged-start, .jagged-end {
+  background: linear-gradient(135deg, black 25%, transparent 25%) 0 0%,
+              linear-gradient(225deg, black 25%, transparent 25%) 0 0%;
+  background-repeat: repeat-x;
+  background-position: 50% bottom, 50% bottom;
+  background-size: 24px 24px, 24px 24px;
+  padding-bottom: 24px;
+  animation: jagged-move infinite linear 1s;
+}
+
+.jagged-end {
+  transform: rotate(180deg);
+}
+
+headerbar,
+statuspage .icon,
+statuspage .title,
+statuspage .description {
+  color: @theme_fg_color;
+}
+
+headerbar:backdrop,
+statuspage:backdrop .icon,
+statuspage:backdrop .title,
+statuspage:backdrop .description {
+  color: @theme_unfocused_fg_color;
+}
+
+headerbar {
+  background: black;
+  border-color: black;
+  box-shadow: none;
+}
+
+statuspage button {
+  background: black;
+}
+
+windowcontrols > button:hover,
+statuspage button:hover {
+  color: black;
+  background: @theme_fg_color;
+}
+
+windowcontrols:backdrop > button:hover,
+statuspage:backdrop button:hover {
+  background: @theme_unfocused_fg_color;
+}
+
+statuspage > scrolledwindow > viewport > box > box {
+  border-spacing: 18px 0;
+}
+
+button.text-button:focus-visible {
+  outline-color: @theme_fg_color;
+}
+
+button.text-button:focus-visible:backdrop {
+  outline-color: @theme_unfocused_fg_color;
+}

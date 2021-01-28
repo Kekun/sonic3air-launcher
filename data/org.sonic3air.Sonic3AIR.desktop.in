@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Sonic 3: Angel Island Revisited
+Exec=sonic3air-launcher
+Icon=org.sonic3air.Sonic3AIR
+Terminal=false
+Type=Application
+Categories=Game;
+StartupNotify=true

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="Sonic3Window" parent="AdwApplicationWindow">
+    <property name="title">Sonic 3: Angel Island Revisited</property>
+    <property name="default-width">800</property>
+    <property name="default-height">576</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar"/>
+        </child>
+        <child>
+          <object class="GtkOverlay">
+            <property name="vexpand">True</property>
+            <property name="overflow">hidden</property>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <style>
+                  <class name="checkered"/>
+                </style>
+                <child>
+                  <object class="AdwStatusPage">
+                    <property name="vexpand">True</property>
+                    <property name="icon-name">eggman-symbolic</property>
+                    <property name="title" translatable="yes">Game Over</property>
+                    <property name="description" translatable="yes">To play Sonic 3: Angel Island Revisited, you need Sonic 3 &amp;amp; Knuckles from the SEGA Mega Drive &amp;amp; Genesis Classics collection installed on Steam.
+
+Please install it and restart the game.
+
+If your Steam install is in an unusual place, please locate the game's ROM file manually.
+                    </property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="homogeneous">True</property>
+                        <property name="halign">center</property>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="label" translatable="yes">Steam Store page</property>
+                            <signal name="clicked" handler="steam_button_clicked_cb" swapped="yes"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="label" translatable="yes">Locate ROM file</property>
+                            <signal name="clicked" handler="locate_button_clicked_cb" swapped="yes"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="overlay">
+              <object class="GtkBox">
+                <property name="can-target">False</property>
+                <property name="valign">start</property>
+                <style>
+                  <class name="jagged-start"/>
+                </style>
+              </object>
+            </child>
+            <child type="overlay">
+              <object class="GtkBox">
+                <property name="can-target">False</property>
+                <property name="valign">end</property>
+                <style>
+                  <class name="jagged-end"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

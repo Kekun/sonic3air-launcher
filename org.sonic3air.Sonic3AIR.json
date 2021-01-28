@@ -1,0 +1,88 @@
+{
+    "app-id" : "org.sonic3air.Sonic3AIR",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "master",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "sonic3air",
+    "finish-args" : [
+        "--share=ipc",
+        "--socket=pulseaudio",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=all",
+        "--filesystem=~/.local/share/Steam/steamapps/common/Sega Classics/uncompressed ROMs/Sonic_Knuckles_wSonic3.bin:ro",
+        "--filesystem=~/.steam/steam/steamapps/common/Sega Classics/uncompressed ROMs/Sonic_Knuckles_wSonic3.bin:ro",
+        "--filesystem=~/.steam/root/steamapps/common/Sega Classics/uncompressed ROMs/Sonic_Knuckles_wSonic3.bin:ro",
+        "--filesystem=~/.steam/debian-installation/steamapps/common/Sega Classics/uncompressed ROMs/Sonic_Knuckles_wSonic3.bin:ro",
+        "--filesystem=~/Steam/steamapps/common/Sega Classics/uncompressed ROMs/Sonic_Knuckles_wSonic3.bin:ro",
+        "--filesystem=~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Sega Classics/uncompressed ROMs/Sonic_Knuckles_wSonic3.bin:ro"
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "libadwaita",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dexamples=false",
+                "-Dintrospection=disabled",
+                "-Dtests=false"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/exalm/libadwaita.git",
+                    "branch" : "main"
+                }
+            ]
+        },
+        {
+            "name" : "sonic3air",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -Dp -m 755 sonic3air /app/bin/sonic3air",
+                "install -Dp -m 755 sonic3air_linux /app/bin/sonic3air_linux",
+                "install -Dp -m 644 libdiscord_game_sdk.so /app/lib/libdiscord_game_sdk.so",
+                "cp -r bonus /app/bin",
+                "cp -r data /app/bin",
+                "cp -r doc /app/bin",
+                "install -Dp -m 644 config.json /app/bin/config.json"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://github.com/Kekun/sonic3air-launcher/releases/download/v21.01.28.0-flathub/sonic3air_game.tar.xz",
+                    "sha256" : "d230a1f22c53d832c4a2c7536f44d322bf3ebcff46ef6efc2218c4378e5921c4"
+                },
+                {
+                    "type" : "script",
+                    "commands" : [
+                        "#!/bin/sh",
+                        "sonic3air-launcher && /app/bin/sonic3air_linux"
+                    ],
+                    "dest-filename" : "sonic3air"
+                }
+            ]
+        },
+        {
+            "name" : "sonic3air-launcher",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/Kekun/sonic3air-launcher.git"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+data/org.sonic3air.Sonic3AIR.desktop.in
+data/org.sonic3air.Sonic3AIR.appdata.xml.in
+data/org.sonic3air.Sonic3AIR.gschema.xml
+src/sonic3-window.ui
+src/main.c
+src/sonic3-window.c
+

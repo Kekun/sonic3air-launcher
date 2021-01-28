@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/sonic3air/Sonic3AIR">
+    <file preprocess="xml-stripblanks">icons/scalable/actions/eggman-symbolic.svg</file>
+    <file>sounds/error.wav</file>
+    <file preprocess="xml-stripblanks">sonic3-window.ui</file>
+    <file compressed="true">style.css</file>
+  </gresource>
+</gresources>

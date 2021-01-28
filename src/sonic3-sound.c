@@ -50,7 +50,6 @@ sonic3_sound_play_error (void)
     return;
   }
 
-  /* g_object_set (G_OBJECT (source), "location", "/app/bin/error.wav", NULL); */
   g_object_set (G_OBJECT (source), "location", "resource:///org/sonic3air/Sonic3AIR/sounds/error.wav", NULL);
 
   gst_bin_add_many (GST_BIN (pipeline),

@@ -37,7 +37,7 @@
 #include "sonic3-sound.h"
 
 static void
-on_startup (GtkApplication *app)
+on_startup (__attribute__ ((unused)) GtkApplication *app)
 {
   g_autoptr(GtkCssProvider) css_provider = gtk_css_provider_new ();
   GtkSettings *settings = gtk_settings_get_default ();

@@ -18,6 +18,30 @@
   <project_license>LicenseRef-proprietary</project_license>
   <developer_name>Eukaryot</developer_name>
   <releases>
+    <release version="v21.04.24.0" type="development" date="2021-04-24" urgency="medium">
+      <description>
+        <ul>
+          <li>Added support for directly loading zipped mods (also including multiple mods in one zip file)</li>
+          <li>Added an option for the (faster) Sonic 3 version of the continue screen music</li>
+          <li>Added an option to display the lives counter in the upper right corner</li>
+          <li>Added options for V-Sync and performance display</li>
+          <li>Added a manual game controller selection</li>
+          <li>Reduced LRZ 2 boss hit points down to 8, going back to the original value of 14 is an option</li>
+          <li>Larger parts of the cutscenes in HPZ and the start of SSZ are now skippable</li>
+          <li>Ported over missing code for a continue screen from S&amp;K when playing as Sonic alone</li>
+          <li>Better prevention of screensaver and system shutdown when playing with a game controller (which did not seem to always work reliably, especially with Linux)</li>
+          <li>Fixed several audio-related issues</li>
+          <li>Various smaller bug fixes</li>
+          <li>Error message boxes can now be cancelled (again), so they don't reappear over and over again in case of repeating errors</li>
+          <li>Linux: Added more possible paths where Steam may be installed, i.e. where to search for the S3&amp;K ROM</li>
+          <li>Linux: Now respecting XDG_DATA_HOME environment variable</li>
+          <li>Fixes for a regression in the script compiler, which caused problems with some script mods</li>
+          <li>Modding: Added function "Renderer.drawCustomSpriteWithTransform" for script modding</li>
+          <li>Modding: Added function "System.hasPlatformFlag" to differentiate between mobile and desktop versions and "PlatformFlags" override in config.json</li>
+          <li>Modding: Added support for preprocessor conditions like "#if GAMEAPP >= 0x21020800" so a mod can use newer update's script functions but still stay compatible with the previous update</li>
+        </ul>
+      </description>
+    </release>
     <release version="v20.11.07.0" type="development" date="2020-11-07" urgency="medium">
       <description>
         <ul>

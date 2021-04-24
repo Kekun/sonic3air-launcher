@@ -60,8 +60,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://github.com/Kekun/sonic3air-launcher/releases/download/v21.01.28.0-flathub/sonic3air_game.tar.xz",
-                    "sha256" : "d230a1f22c53d832c4a2c7536f44d322bf3ebcff46ef6efc2218c4378e5921c4"
+                    "url" : "https://github.com/Kekun/sonic3air-launcher/releases/download/v21.04.24.0-flathub/sonic3air_preview.tar.gz",
+                    "sha256" : "998ffdc1b7879681ee6bc67bebfaa05a201cb642a7bac520365c5cb20235cd4a"
                 },
                 {
                     "type" : "script",
